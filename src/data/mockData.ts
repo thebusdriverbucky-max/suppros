@@ -1,4 +1,5 @@
 import type { Product, Sale, CategoryType, DashboardMetrics, RevenueTrend, SalesByCategory, TopSupplement, StockLevel } from '../types';
+import { Category } from '../types';
 
 // Mock Products Data
 export const mockProducts: Product[] = [
@@ -195,7 +196,7 @@ export const calculateDashboardMetrics = (): DashboardMetrics => {
   }
 
   // Sales by category
-  const categorySales: { [key in Category]: number } = {
+  const categorySales: Record<CategoryType, number> = {
     [Category.VITAMINS]: 0,
     [Category.MINERALS]: 0,
     [Category.PROTEINS]: 0,

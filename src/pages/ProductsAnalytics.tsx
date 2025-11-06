@@ -4,7 +4,7 @@ import { mockProducts, mockDashboardMetrics } from '../data/mockData';
 import { Category } from '../types';
 import type { CategoryType } from '../types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-import { AlertTriangle, CheckCircle, Clock, TrendingUp } from 'lucide-react';
+import { AlertTriangle, CheckCircle, Clock } from 'lucide-react';
 
 const ProductsAnalytics: React.FC = () => {
   const { stockLevels } = mockDashboardMetrics;
