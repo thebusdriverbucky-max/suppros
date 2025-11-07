@@ -121,7 +121,7 @@ const SalesOverview: React.FC = () => {
             {mockDashboardMetrics.topSupplements.map((supplement, index) => (
               <div key={supplement.id} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                 <div className="flex items-center space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-primary-500 text-white dark:text-black rounded-full flex items-center justify-center text-sm font-semibold">
+                  <div className="flex-shrink-0 w-8 h-8 bg-primary-500 text-black dark:text-white rounded-full flex items-center justify-center text-sm font-semibold">
                     {index + 1}
                   </div>
                   <div>

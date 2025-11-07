@@ -202,7 +202,7 @@ const ProductsAnalytics: React.FC = () => {
                     <tr key={product.id} className="hover:bg-gray-50 dark:hover:bg-gray-800">
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
-                          <div className="flex-shrink-0 w-8 h-8 bg-primary-500 text-white dark:text-black rounded-full flex items-center justify-center text-sm font-semibold mr-4">
+                          <div className="flex-shrink-0 w-8 h-8 bg-primary-500 text-black dark:text-white rounded-full flex items-center justify-center text-sm font-semibold mr-4">
                             {filteredProducts.indexOf(product) + 1}
                           </div>
                           <div>
