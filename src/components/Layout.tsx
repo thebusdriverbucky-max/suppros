@@ -39,10 +39,10 @@ export default function Layout({ children }: LayoutProps) {
       {/* Top Panel */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-primary shadow-sm border-b border-border w-screen">
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src="https://i.imgur.com/pd9H5Wt.png" alt="SupPros Logo" className="h-8 w-8 mr-2" />
             <h1 className="text-xl font-bold text-primary-foreground">SupPros</h1>
-          </div>
+          </Link>
 
           <div className="flex items-center space-x-4">
             {/* Dark mode toggle */}
