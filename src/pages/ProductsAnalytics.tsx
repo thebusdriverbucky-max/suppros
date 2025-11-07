@@ -216,7 +216,7 @@ const ProductsAnalytics: React.FC = () => {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 capitalize">
+                        <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-900 dark:bg-green-900 dark:text-green-200 capitalize">
                           {product.category.replace('_', ' ')}
                         </span>
                       </td>

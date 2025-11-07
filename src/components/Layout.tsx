@@ -35,7 +35,7 @@ export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background w-full">
       {/* Top Panel */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-primary shadow-sm border-b border-border w-screen">
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
@@ -52,7 +52,7 @@ export default function Layout({ children }: LayoutProps) {
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
-                <Sun className="h-5 w-5 text-gray-400" />
+                <Sun className="h-5 w-5 text-white" />
               ) : (
                 <Moon className="h-5 w-5" />
               )}
@@ -71,7 +71,7 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </header>
 
-      <div className="lg:flex pt-16">
+      <div className="lg:flex pt-16 min-h-screen w-full">
         {/* Mobile sidebar overlay */}
         {sidebarOpen && (
           <div
@@ -112,9 +112,9 @@ export default function Layout({ children }: LayoutProps) {
         </div>
 
         {/* Main content */}
-        <div className="lg:flex-1">
+        <div className="lg:flex-1 bg-background min-h-screen w-full">
           {/* Page content */}
-          <main className="p-4 sm:p-6 lg:p-8">
+          <main className="p-4 sm:p-6 lg:p-8 min-h-full">
             {children}
           </main>
         </div>
