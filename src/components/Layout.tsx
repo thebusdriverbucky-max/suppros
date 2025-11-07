@@ -37,7 +37,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-background">
       {/* Top Panel */}
-      <header className="bg-primary shadow-sm border-b border-border w-full">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-primary shadow-sm border-b border-border w-screen">
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center">
             <img src="https://i.imgur.com/pd9H5Wt.png" alt="SupPros Logo" className="h-8 w-8 mr-2" />
@@ -52,7 +52,7 @@ export default function Layout({ children }: LayoutProps) {
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
-                <Sun className="h-5 w-5" />
+                <Sun className="h-5 w-5 text-gray-400" />
               ) : (
                 <Moon className="h-5 w-5" />
               )}
@@ -60,18 +60,18 @@ export default function Layout({ children }: LayoutProps) {
 
             {/* Profile placeholder */}
             <div className="flex items-center space-x-2">
-              <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-sm font-medium text-primary-foreground">U</span>
+              <div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center">
+                <span className="text-sm font-medium text-white">A</span>
               </div>
               <span className="hidden sm:block text-sm font-medium text-foreground">
-                User
+                Admin
               </span>
             </div>
           </div>
         </div>
       </header>
 
-      <div className="lg:flex">
+      <div className="lg:flex pt-16">
         {/* Mobile sidebar overlay */}
         {sidebarOpen && (
           <div
@@ -81,7 +81,7 @@ export default function Layout({ children }: LayoutProps) {
         )}
 
         {/* Sidebar */}
-        <div className={`fixed inset-y-0 left-0 top-16 z-50 w-64 bg-card transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 lg:flex lg:flex-col lg:flex-shrink-0`}>
+        <div className={`fixed inset-y-0 left-0 top-16 z-40 w-64 bg-card transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 lg:flex lg:flex-col lg:flex-shrink-0`}>
           <nav className="mt-8 px-4">
             <ul className="space-y-2">
               {navigation.map((item) => {
