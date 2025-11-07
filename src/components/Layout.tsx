@@ -37,7 +37,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-background">
       {/* Top Panel */}
-      <header className="bg-card shadow-sm border-b border-border">
+      <header className="bg-primary shadow-sm border-b border-border w-full">
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center">
             <img src="https://i.imgur.com/pd9H5Wt.png" alt="SupPros Logo" className="h-8 w-8 mr-2" />
@@ -93,7 +93,7 @@ export default function Layout({ children }: LayoutProps) {
                       className={`group flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors ${
                         isActive
                           ? 'bg-primary text-white'
-                          : 'text-muted-foreground hover:bg-muted hover:text-green-800 dark:hover:text-green-400'
+                          : 'text-muted-foreground hover:bg-muted hover:text-green-900 dark:hover:text-green-300'
                       }`}
                       onClick={() => setSidebarOpen(false)}
                     >
