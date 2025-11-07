@@ -53,12 +53,12 @@ const SalesOverview: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
               <Card key={index} className="border-0 shadow-none bg-transparent">
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                <CardHeader className="flex flex-row items-center space-y-0 pb-2">
+                  <CardTitle className="text-sm font-medium text-gray-600 dark:text-gray-400 mr-3">
                     {stat.title}
                   </CardTitle>
                   <div className={`${stat.bgColor} p-2 rounded-full`}>
-                    <stat.icon className={`h-4 w-4 ${stat.color}`} />
+                    <stat.icon className={`h-4 w-4 text-green-600`} />
                   </div>
                 </CardHeader>
                 <CardContent>

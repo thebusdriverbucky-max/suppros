@@ -48,11 +48,15 @@ export default function Layout({ children }: LayoutProps) {
             {/* Dark mode toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              className={`p-2 rounded-md transition-colors ${
+                theme === 'dark'
+                  ? 'bg-muted text-yellow-300 hover:bg-muted/80'
+                  : 'bg-yellow-300 text-black hover:bg-yellow-400'
+              }`}
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
-                <Sun className="h-5 w-5 text-white" />
+                <Sun className="h-5 w-5" />
               ) : (
                 <Moon className="h-5 w-5" />
               )}
@@ -92,7 +96,7 @@ export default function Layout({ children }: LayoutProps) {
                       to={item.href}
                       className={`group flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors ${
                         isActive
-                          ? 'bg-primary text-white'
+                          ? 'bg-green-900 text-white'
                           : 'text-muted-foreground hover:bg-muted hover:text-green-900 dark:hover:text-green-300'
                       }`}
                       onClick={() => setSidebarOpen(false)}
