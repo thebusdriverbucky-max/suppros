@@ -29,6 +29,27 @@ export interface Sale {
   customerId?: string;
 }
 
+// Order Types
+export interface OrderItem {
+  productId: string;
+  productName: string;
+  quantity: number;
+  price: number;
+  total: number;
+}
+
+export interface Order {
+  id: string;
+  customerId: string;
+  customerName: string;
+  customerEmail: string;
+  items: OrderItem[];
+  totalAmount: number;
+  status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
+  date: Date;
+  shippingAddress: string;
+}
+
 // Dashboard Metrics Types
 export interface RevenueTrend {
   month: string;
