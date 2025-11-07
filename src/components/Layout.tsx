@@ -39,7 +39,7 @@ export default function Layout({ children }: LayoutProps) {
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 z-40 bg-gray-600 bg-opacity-75 lg:hidden"
+          className="fixed inset-0 z-40 bg-background/75 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -47,7 +47,7 @@ export default function Layout({ children }: LayoutProps) {
       {/* Sidebar */}
       <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-card transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}>
         <div className="flex items-center justify-center h-16 px-4 bg-primary">
-          <h1 className="text-xl font-bold text-white">SupPros</h1>
+          <h1 className="text-xl font-bold text-primary-foreground">SupPros</h1>
         </div>
 
         <nav className="mt-8 px-4">
@@ -111,7 +111,7 @@ export default function Layout({ children }: LayoutProps) {
               {/* Profile placeholder */}
               <div className="flex items-center space-x-2">
                 <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
-                  <span className="text-sm font-medium text-white">U</span>
+                  <span className="text-sm font-medium text-primary-foreground">U</span>
                 </div>
                 <span className="hidden sm:block text-sm font-medium text-foreground">
                   User

@@ -14,29 +14,29 @@ const SalesOverview: React.FC = () => {
       title: 'Total Revenue',
       value: formatCurrency(totalRevenue),
       icon: DollarSign,
-      color: 'text-green-600',
-      bgColor: 'bg-green-100'
+      color: 'text-primary',
+      bgColor: 'bg-secondary/20'
     },
     {
       title: 'Total Orders',
       value: totalOrders.toLocaleString(),
       icon: ShoppingCart,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-100'
+      color: 'text-info',
+      bgColor: 'bg-info/10'
     },
     {
       title: 'Products',
       value: '12',
       icon: Package,
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-100'
+      color: 'text-warning',
+      bgColor: 'bg-warning/10'
     },
     {
       title: 'Avg Order Value',
       value: formatCurrency(45.67),
       icon: TrendingUp,
-      color: 'text-orange-600',
-      bgColor: 'bg-orange-100'
+      color: 'text-success',
+      bgColor: 'bg-success/10'
     }
   ];
 
@@ -83,9 +83,9 @@ const SalesOverview: React.FC = () => {
                 <Line
                   type="monotone"
                   dataKey="value"
-                  stroke="#0ea5e9"
+                  stroke="var(--chart-1)"
                   strokeWidth={2}
-                  dot={{ fill: '#0ea5e9' }}
+                  dot={{ fill: 'var(--chart-1)' }}
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -104,7 +104,7 @@ const SalesOverview: React.FC = () => {
                 <XAxis dataKey="category" />
                 <YAxis tickFormatter={formatCurrency} />
                 <Tooltip formatter={(value) => [formatCurrency(value as number), 'Sales']} />
-                <Bar dataKey="sales" fill="#0ea5e9" />
+                <Bar dataKey="sales" fill="var(--chart-1)" />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
