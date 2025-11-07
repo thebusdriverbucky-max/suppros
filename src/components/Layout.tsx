@@ -47,6 +47,7 @@ export default function Layout({ children }: LayoutProps) {
       {/* Sidebar */}
       <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-card transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}>
         <div className="flex items-center justify-center h-16 px-4 bg-primary">
+          <img src="https://i.imgur.com/pd9H5Wt.png" alt="SupPros Logo" className="h-8 w-8 mr-2" />
           <h1 className="text-xl font-bold text-primary-foreground">SupPros</h1>
         </div>
 
@@ -61,7 +62,7 @@ export default function Layout({ children }: LayoutProps) {
                     className={`group flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors ${
                       isActive
                         ? 'bg-primary text-white'
-                        : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+                        : 'text-muted-foreground hover:bg-muted hover:text-green-800 dark:hover:text-green-400'
                     }`}
                     onClick={() => setSidebarOpen(false)}
                   >

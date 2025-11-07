@@ -201,11 +201,18 @@ const ProductsAnalytics: React.FC = () => {
                   return (
                     <tr key={product.id} className="hover:bg-gray-50 dark:hover:bg-gray-800">
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-gray-900 dark:text-white">
-                          {product.name}
-                        </div>
-                        <div className="text-sm text-gray-500 dark:text-gray-400">
-                          {product.description}
+                        <div className="flex items-center">
+                          <div className="flex-shrink-0 w-8 h-8 bg-primary-500 text-white dark:text-black rounded-full flex items-center justify-center text-sm font-semibold mr-4">
+                            {filteredProducts.indexOf(product) + 1}
+                          </div>
+                          <div>
+                            <div className="text-sm font-medium text-gray-900 dark:text-white">
+                              {product.name}
+                            </div>
+                            <div className="text-sm text-gray-500 dark:text-gray-400">
+                              {product.description}
+                            </div>
+                          </div>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
