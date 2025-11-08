@@ -134,7 +134,7 @@ const Orders: React.FC = () => {
                 <div className="p-4">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
                     <div className="flex items-center space-x-4 flex-1 justify-center sm:justify-start">
-                      <div className="text-center">
+                      <div className="text-center sm:text-left">
                         <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
                           {order.id}
                         </h3>
@@ -157,12 +157,12 @@ const Orders: React.FC = () => {
                       </span>
                       <button
                         onClick={() => toggleOrderExpansion(order.id)}
-                        className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded self-center sm:self-auto"
+                        className="p-1 bg-white hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 rounded self-center sm:self-auto"
                       >
                         {expandedOrders.has(order.id) ? (
-                          <ChevronUp className="h-4 w-4" />
+                          <ChevronUp className="h-4 w-4 text-black dark:text-white" />
                         ) : (
-                          <ChevronDown className="h-4 w-4" />
+                          <ChevronDown className="h-4 w-4 text-black dark:text-white" />
                         )}
                       </button>
                     </div>
