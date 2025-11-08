@@ -59,8 +59,8 @@ const Orders: React.FC = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Orders</h1>
-        <p className="text-gray-600 dark:text-gray-400 mt-2">Manage and track customer orders</p>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white text-center sm:text-left">Orders</h1>
+        <p className="text-gray-600 dark:text-gray-400 mt-2 text-center sm:text-left">Manage and track customer orders</p>
       </div>
 
       {/* Status Summary */}
@@ -132,32 +132,32 @@ const Orders: React.FC = () => {
             {mockOrders.map((order) => (
               <div key={order.id} className="border border-gray-200 dark:border-gray-700 rounded-lg">
                 <div className="p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4">
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+                    <div className="flex items-center space-x-4 flex-1 justify-center sm:justify-start">
+                      <div className="text-center">
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
                           {order.id}
                         </h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                           {order.customerName} • {order.customerEmail}
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-4">
-                      <div className="text-right">
-                        <p className="text-lg font-semibold text-gray-900 dark:text-white">
+                    <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 min-w-0">
+                      <div className="text-center sm:text-right">
+                        <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
                           {formatCurrency(order.totalAmount)}
                         </p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                           {formatDate(order.date)}
                         </p>
                       </div>
-                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize ${getStatusColor(order.status)}`}>
+                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize self-center sm:self-auto ${getStatusColor(order.status)}`}>
                         {order.status}
                       </span>
                       <button
                         onClick={() => toggleOrderExpansion(order.id)}
-                        className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+                        className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded self-center sm:self-auto"
                       >
                         {expandedOrders.has(order.id) ? (
                           <ChevronUp className="h-4 w-4" />
@@ -172,17 +172,17 @@ const Orders: React.FC = () => {
                     <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
                       <div className="space-y-3">
                         <div>
-                          <h4 className="font-medium text-gray-900 dark:text-white mb-2">Order Items</h4>
+                          <h4 className="font-medium text-gray-900 dark:text-white mb-2 text-center sm:text-left">Order Items</h4>
                           <div className="space-y-2">
                             {order.items.map((item, index) => (
-                              <div key={index} className="flex justify-between items-center py-2 px-3 bg-gray-50 dark:bg-gray-800 rounded">
-                                <div>
-                                  <p className="font-medium text-gray-900 dark:text-white">{item.productName}</p>
-                                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                              <div key={index} className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 px-3 bg-gray-50 dark:bg-gray-800 rounded space-y-2 sm:space-y-0">
+                                <div className="text-center sm:text-left">
+                                  <p className="font-medium text-gray-900 dark:text-white text-sm sm:text-base">{item.productName}</p>
+                                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                                     Quantity: {item.quantity} × {formatCurrency(item.price)}
                                   </p>
                                 </div>
-                                <p className="font-semibold text-gray-900 dark:text-white">
+                                <p className="font-semibold text-gray-900 dark:text-white text-center sm:text-right text-sm sm:text-base">
                                   {formatCurrency(item.total)}
                                 </p>
                               </div>
@@ -190,14 +190,14 @@ const Orders: React.FC = () => {
                           </div>
                         </div>
 
-                        <div className="flex justify-between items-center pt-2 border-t border-gray-200 dark:border-gray-700">
-                          <div>
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center pt-2 border-t border-gray-200 dark:border-gray-700 space-y-2 sm:space-y-0">
+                          <div className="text-center sm:text-left">
                             <h4 className="font-medium text-gray-900 dark:text-white mb-1">Shipping Address</h4>
-                            <p className="text-sm text-gray-600 dark:text-gray-400">{order.shippingAddress}</p>
+                            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{order.shippingAddress}</p>
                           </div>
-                          <div className="text-right">
-                            <p className="text-sm text-gray-600 dark:text-gray-400">Total Amount</p>
-                            <p className="text-lg font-semibold text-gray-900 dark:text-white">
+                          <div className="text-center sm:text-right">
+                            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Total Amount</p>
+                            <p className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
                               {formatCurrency(order.totalAmount)}
                             </p>
                           </div>

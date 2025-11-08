@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BarChart3, ShoppingCart, Package, Sun, Moon } from 'lucide-react';
+import { BarChart3, ShoppingCart, Package, Menu, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 
 interface LayoutProps {
@@ -62,6 +62,19 @@ export default function Layout({ children }: LayoutProps) {
               )}
             </button>
 
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              className={`lg:hidden p-2 rounded-md transition-colors ${
+                theme === 'dark'
+                  ? 'bg-muted text-foreground hover:bg-muted/80'
+                  : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+              }`}
+              aria-label="Open sidebar"
+            >
+              <Menu className="h-5 w-5" />
+            </button>
+
             {/* Profile placeholder */}
             <div className="flex items-center space-x-2">
               <div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center">
@@ -85,7 +98,7 @@ export default function Layout({ children }: LayoutProps) {
         )}
 
         {/* Sidebar */}
-        <div className={`fixed inset-y-0 left-0 top-16 z-40 w-64 bg-card transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 lg:flex lg:flex-col lg:flex-shrink-0`}>
+        <div className={`fixed inset-y-0 left-0 top-16 z-40 w-64 bg-card transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 lg:flex lg:flex-col lg:flex-shrink-0 lg:block`}>
           <nav className="mt-8 px-4">
             <ul className="space-y-2">
               {navigation.map((item) => {
