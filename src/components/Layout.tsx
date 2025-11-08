@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BarChart3, ShoppingCart, Package, Menu, Sun, Moon } from 'lucide-react';
+import { BarChart3, ShoppingCart, Package, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 
 interface LayoutProps {

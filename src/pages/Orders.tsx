@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 import { mockOrders } from '../data/mockData';
 import type { Order } from '../types';
-import { Package, Eye, ChevronDown, ChevronUp } from 'lucide-react';
+import { Package, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 
 const Orders: React.FC = () => {
