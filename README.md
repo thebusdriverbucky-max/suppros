@@ -88,7 +88,7 @@ src/
 
    ```bash
    git clone <repository-url>
-   cd suppros-dashboard
+   cd admin-panel-suppros
    ```
 
 2. **Install dependencies**

@@ -36,7 +36,6 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="min-h-screen bg-background w-full">
-      {/* Top Panel */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-primary shadow-sm border-b border-border w-screen">
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
           <Link to="/" className="flex items-center">
@@ -45,7 +44,6 @@ export default function Layout({ children }: LayoutProps) {
           </Link>
 
           <div className="flex items-center space-x-4">
-            {/* Dark mode toggle */}
             <button
               onClick={toggleTheme}
               className={`p-2 rounded-md transition-colors ${
@@ -62,7 +60,6 @@ export default function Layout({ children }: LayoutProps) {
               )}
             </button>
 
-            {/* Mobile menu button */}
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
               className={`lg:hidden p-2 rounded-md transition-colors ${
@@ -75,7 +72,6 @@ export default function Layout({ children }: LayoutProps) {
               <Menu className="h-5 w-5" />
             </button>
 
-            {/* Profile placeholder */}
             <div className="flex items-center space-x-2">
               <div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center">
                 <span className="text-sm font-medium text-white">A</span>
@@ -89,7 +85,6 @@ export default function Layout({ children }: LayoutProps) {
       </header>
 
       <div className="lg:flex pt-16 min-h-screen w-full">
-        {/* Mobile sidebar overlay */}
         {sidebarOpen && (
           <div
             className="fixed inset-0 z-40 bg-background/75 lg:hidden"
@@ -97,7 +92,6 @@ export default function Layout({ children }: LayoutProps) {
           />
         )}
 
-        {/* Sidebar */}
         <div className={`fixed inset-y-0 left-0 top-16 z-40 w-64 bg-card transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 lg:flex lg:flex-col lg:flex-shrink-0 lg:block`}>
           <nav className="mt-8 px-4">
             <ul className="space-y-2">
@@ -128,9 +122,7 @@ export default function Layout({ children }: LayoutProps) {
           </nav>
         </div>
 
-        {/* Main content */}
         <div className="lg:flex-1 bg-background min-h-screen w-full">
-          {/* Page content */}
           <main className="p-4 sm:p-6 lg:p-8 min-h-full">
             {children}
           </main>

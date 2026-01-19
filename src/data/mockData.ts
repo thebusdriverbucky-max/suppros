@@ -1,9 +1,7 @@
 import type { Product, Sale, CategoryType, DashboardMetrics, RevenueTrend, SalesByCategory, TopSupplement, StockLevel, Order, OrderItem } from '../types';
 import { Category } from '../types';
 
-// Mock Products Data
 export const mockProducts: Product[] = [
-  // Vitamins
   {
     id: 'vit-001',
     name: 'Vitamin D3 1000 IU',
@@ -40,8 +38,6 @@ export const mockProducts: Product[] = [
     sales: 190,
     description: 'Comprehensive daily multivitamin for men 50+',
   },
-
-  // Minerals
   {
     id: 'min-001',
     name: 'Magnesium Glycinate',
@@ -69,8 +65,6 @@ export const mockProducts: Product[] = [
     sales: 120,
     description: 'Gentle iron supplement for optimal absorption',
   },
-
-  // Proteins
   {
     id: 'pro-001',
     name: 'Whey Protein Isolate',
@@ -98,8 +92,6 @@ export const mockProducts: Product[] = [
     sales: 310,
     description: 'Hydrolyzed collagen for skin, hair, and joint health',
   },
-
-  // Herbal Supplements
   {
     id: 'herb-001',
     name: 'Ashwagandha Root Extract',
@@ -129,7 +121,6 @@ export const mockProducts: Product[] = [
   },
 ];
 
-// Generate Mock Sales Data for Last 12 Months
 const generateSalesData = (): Sale[] => {
   const sales: Sale[] = [];
   const now = new Date();
@@ -137,15 +128,14 @@ const generateSalesData = (): Sale[] => {
   for (let i = 0; i < 12; i++) {
     const monthDate = new Date(now.getFullYear(), now.getMonth() - i, 1);
 
-    // Generate 50-100 sales per month for each product
     mockProducts.forEach((product) => {
-      const salesCount = Math.floor(Math.random() * 50) + 20; // 20-70 sales per product per month
+      const salesCount = Math.floor(Math.random() * 50) + 20;
 
       for (let j = 0; j < salesCount; j++) {
         const saleDate = new Date(monthDate);
-        saleDate.setDate(Math.floor(Math.random() * 28) + 1); // Random day in month
+        saleDate.setDate(Math.floor(Math.random() * 28) + 1);
 
-        const quantity = Math.floor(Math.random() * 3) + 1; // 1-3 items per sale
+        const quantity = Math.floor(Math.random() * 3) + 1;
 
         sales.push({
           id: `sale-${product.id}-${i}-${j}`,
@@ -163,22 +153,17 @@ const generateSalesData = (): Sale[] => {
 
 export const mockSales: Sale[] = generateSalesData();
 
-// Calculate Dashboard Metrics
 export const calculateDashboardMetrics = (): DashboardMetrics => {
   const now = new Date();
   const lastYear = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
   const recentSales = mockSales.filter(sale => sale.date >= lastYear);
 
-  // Total revenue from recent sales
   const totalRevenue = recentSales.reduce((sum, sale) => sum + sale.revenue, 0);
 
-  // Total orders (each sale is an order)
   const totalOrders = recentSales.length;
 
-  // Average order value
   const averageOrderValue = totalOrders > 0 ? totalRevenue / totalOrders : 0;
 
-  // Revenue trend by month
   const revenueTrend: RevenueTrend[] = [];
   for (let i = 11; i >= 0; i--) {
     const monthDate = new Date(now.getFullYear(), now.getMonth() - i, 1);
@@ -195,7 +180,6 @@ export const calculateDashboardMetrics = (): DashboardMetrics => {
     });
   }
 
-  // Sales by category
   const categorySales: Record<CategoryType, number> = {
     [Category.VITAMINS]: 0,
     [Category.MINERALS]: 0,
@@ -216,7 +200,6 @@ export const calculateDashboardMetrics = (): DashboardMetrics => {
     percentage: totalRevenue > 0 ? (sales / totalRevenue) * 100 : 0,
   }));
 
-  // Top supplements by sales
   const productSalesMap: { [productId: string]: number } = {};
   recentSales.forEach(sale => {
     productSalesMap[sale.productId] = (productSalesMap[sale.productId] || 0) + sale.revenue;
@@ -236,7 +219,6 @@ export const calculateDashboardMetrics = (): DashboardMetrics => {
     .sort((a, b) => b.revenue - a.revenue)
     .slice(0, 5);
 
-  // Stock levels
   const stockLevels: StockLevel[] = mockProducts.map(product => {
     const minStock = 50;
     const maxStock = 300;
@@ -272,12 +254,10 @@ export const calculateDashboardMetrics = (): DashboardMetrics => {
   };
 };
 
-// Mock Orders Data
 const generateMockOrders = (): Order[] => {
   const orders: Order[] = [];
   const now = new Date();
 
-  // Customer data
   const customers = [
     { id: 'cus-001', name: 'John Smith', email: 'john.smith@email.com' },
     { id: 'cus-002', name: 'Sarah Johnson', email: 'sarah.j@email.com' },
@@ -304,9 +284,8 @@ const generateMockOrders = (): Order[] => {
 
   for (let i = 0; i < 50; i++) {
     const customer = customers[Math.floor(Math.random() * customers.length)];
-    const orderDate = new Date(now.getTime() - Math.random() * 30 * 24 * 60 * 60 * 1000); // Random date within last 30 days
+    const orderDate = new Date(now.getTime() - Math.random() * 30 * 24 * 60 * 60 * 1000);
 
-    // Generate 1-5 items per order
     const itemCount = Math.floor(Math.random() * 5) + 1;
     const items: OrderItem[] = [];
     let totalAmount = 0;

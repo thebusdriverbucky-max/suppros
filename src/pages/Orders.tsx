@@ -63,7 +63,6 @@ const Orders: React.FC = () => {
         <p className="text-gray-600 dark:text-gray-400 mt-2 text-center sm:text-left">Manage and track customer orders</p>
       </div>
 
-      {/* Status Summary */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
         <Card>
           <CardContent className="pt-6">
@@ -122,7 +121,6 @@ const Orders: React.FC = () => {
         </Card>
       </div>
 
-      {/* Orders List */}
       <Card>
         <CardHeader>
           <CardTitle>Recent Orders</CardTitle>

@@ -1,4 +1,3 @@
-// Product and Category Types
 export const Category = {
   VITAMINS: 'vitamins',
   MINERALS: 'minerals',
@@ -19,7 +18,6 @@ export interface Product {
   imageUrl?: string;
 }
 
-// Sale Types
 export interface Sale {
   id: string;
   productId: string;
@@ -29,7 +27,6 @@ export interface Sale {
   customerId?: string;
 }
 
-// Order Types
 export interface OrderItem {
   productId: string;
   productName: string;
@@ -50,7 +47,6 @@ export interface Order {
   shippingAddress: string;
 }
 
-// Dashboard Metrics Types
 export interface RevenueTrend {
   month: string;
   value: number;
@@ -90,13 +86,11 @@ export interface DashboardMetrics {
   stockLevels: StockLevel[];
 }
 
-// UI State Types
 export interface LoadingState {
   isLoading: boolean;
   error: string | null;
 }
 
-// Chart Data Types for Recharts
 export interface ChartDataPoint {
   name: string;
   value: number;
@@ -109,7 +103,6 @@ export interface TimeSeriesDataPoint {
   [key: string]: any;
 }
 
-// API Response Types
 export interface ApiResponse<T> {
   data: T;
   message: string;
@@ -124,7 +117,6 @@ export interface PaginatedResponse<T> {
   totalPages: number;
 }
 
-// Form Types
 export interface ProductFormData {
   name: string;
   category: CategoryType;
@@ -140,7 +132,6 @@ export interface FilterOptions {
   inStock?: boolean;
 }
 
-// Navigation Types
 export interface NavItem {
   id: string;
   label: string;
@@ -148,7 +139,6 @@ export interface NavItem {
   icon?: string;
 }
 
-// Theme Types
 export interface ThemeColors {
   primary: string;
   secondary: string;

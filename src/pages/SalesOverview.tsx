@@ -47,7 +47,6 @@ const SalesOverview: React.FC = () => {
         <p className="text-gray-600 dark:text-gray-400 mt-2">Monitor your supplement sales performance</p>
       </div>
 
-      {/* Stats Cards */}
       <Card>
         <CardContent className="pt-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -70,9 +69,7 @@ const SalesOverview: React.FC = () => {
         </CardContent>
       </Card>
 
-      {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Revenue Trend */}
         <Card>
           <CardHeader>
             <CardTitle>Revenue Trend</CardTitle>
@@ -96,7 +93,6 @@ const SalesOverview: React.FC = () => {
           </CardContent>
         </Card>
 
-        {/* Sales by Category */}
         <Card>
           <CardHeader>
             <CardTitle>Sales by Category</CardTitle>
@@ -115,7 +111,6 @@ const SalesOverview: React.FC = () => {
         </Card>
       </div>
 
-      {/* Top Supplements */}
       <Card>
         <CardHeader>
           <CardTitle>Top Selling Supplements</CardTitle>

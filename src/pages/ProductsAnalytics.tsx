@@ -34,7 +34,6 @@ const ProductsAnalytics: React.FC = () => {
     }
   };
 
-  // Prepare chart data for product performance
   const productPerformanceData = filteredProducts.map(product => ({
     name: product.name.length > 15 ? product.name.substring(0, 15) + '...' : product.name,
     sales: product.sales,
@@ -42,7 +41,6 @@ const ProductsAnalytics: React.FC = () => {
     stock: product.stock,
   }));
 
-  // Stock status distribution
   const stockStatusData = [
     { name: 'High Stock', value: stockLevels.filter(s => s.status === 'high').length, color: '#10b981' },
     { name: 'Medium Stock', value: stockLevels.filter(s => s.status === 'medium').length, color: '#f59e0b' },
@@ -56,7 +54,6 @@ const ProductsAnalytics: React.FC = () => {
         <p className="text-gray-600 dark:text-gray-400 mt-2">Monitor product performance and inventory levels</p>
       </div>
 
-      {/* Category Filter */}
       <Card>
         <CardHeader>
           <CardTitle>Filter by Category</CardTitle>
@@ -90,7 +87,6 @@ const ProductsAnalytics: React.FC = () => {
         </CardContent>
       </Card>
 
-      {/* Stock Status Overview */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {stockStatusData.map((status, index) => (
           <Card key={index}>
@@ -109,9 +105,7 @@ const ProductsAnalytics: React.FC = () => {
         ))}
       </div>
 
-      {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Product Sales Performance */}
         <Card>
           <CardHeader>
             <CardTitle>Product Sales Performance</CardTitle>
@@ -132,7 +126,6 @@ const ProductsAnalytics: React.FC = () => {
           </CardContent>
         </Card>
 
-        {/* Stock Status Distribution */}
         <Card>
           <CardHeader>
             <CardTitle>Stock Status Distribution</CardTitle>
@@ -159,7 +152,6 @@ const ProductsAnalytics: React.FC = () => {
         </Card>
       </div>
 
-      {/* Products Table */}
       <Card>
         <CardHeader>
           <CardTitle>Product Inventory & Performance</CardTitle>
