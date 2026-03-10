@@ -14,127 +14,164 @@ const SalesOverview: React.FC = () => {
       title: 'Total Revenue',
       value: formatCurrency(totalRevenue),
       icon: DollarSign,
-      color: 'text-primary',
-      bgColor: 'bg-secondary/20'
+      color: 'text-blue-600 dark:text-blue-400',
+      bgColor: 'bg-blue-50 dark:bg-blue-900/20'
     },
     {
       title: 'Total Orders',
       value: totalOrders.toLocaleString(),
       icon: ShoppingCart,
-      color: 'text-info',
-      bgColor: 'bg-info/10'
+      color: 'text-indigo-600 dark:text-indigo-400',
+      bgColor: 'bg-indigo-50 dark:bg-indigo-900/20'
     },
     {
       title: 'Products',
       value: '12',
       icon: Package,
-      color: 'text-warning',
-      bgColor: 'bg-warning/10'
+      color: 'text-amber-600 dark:text-amber-400',
+      bgColor: 'bg-amber-50 dark:bg-amber-900/20'
     },
     {
       title: 'Avg Order Value',
       value: formatCurrency(45.67),
       icon: TrendingUp,
-      color: 'text-success',
-      bgColor: 'bg-success/10'
+      color: 'text-emerald-600 dark:text-emerald-400',
+      bgColor: 'bg-emerald-50 dark:bg-emerald-900/20'
     }
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Sales Overview</h1>
-        <p className="text-gray-600 dark:text-gray-400 mt-2">Monitor your supplement sales performance</p>
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">Sales Overview</h1>
+        <p className="text-muted-foreground mt-2">Monitor your supplement sales performance</p>
       </div>
 
-      <Card>
-        <CardContent className="pt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <Card className="overflow-hidden border-none shadow-sm">
+        <CardContent className="p-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border">
             {stats.map((stat, index) => (
-              <Card key={index} className="border-0 shadow-none bg-transparent">
-                <CardHeader className="flex flex-row items-center space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium text-gray-600 dark:text-gray-400 mr-3">
+              <div key={index} className="p-6 transition-colors hover:bg-muted/50">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
                     {stat.title}
-                  </CardTitle>
-                  <div className={`${stat.bgColor} p-2 rounded-full`}>
-                    <stat.icon className={`h-4 w-4 text-green-600`} />
+                  </span>
+                  <div className={`${stat.bgColor} ${stat.color} p-2.5 rounded-xl`}>
+                    <stat.icon className="h-5 w-5" />
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white">{stat.value}</div>
-                </CardContent>
-              </Card>
+                </div>
+                <div className="text-3xl font-bold text-foreground">{stat.value}</div>
+              </div>
             ))}
           </div>
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <Card className="border-none shadow-sm">
           <CardHeader>
-            <CardTitle>Revenue Trend</CardTitle>
+            <CardTitle className="text-lg font-bold">Revenue Trend</CardTitle>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={revenueTrend}>
-                <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
-                <XAxis dataKey="month" />
-                <YAxis tickFormatter={formatCurrency} />
-                <Tooltip formatter={(value) => [formatCurrency(value as number), 'Revenue']} />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--border)" />
+                <XAxis 
+                  dataKey="month" 
+                  axisLine={false} 
+                  tickLine={false} 
+                  tick={{ fill: 'var(--muted-foreground)', fontSize: 12 }}
+                  dy={10}
+                />
+                <YAxis 
+                  tickFormatter={formatCurrency} 
+                  axisLine={false} 
+                  tickLine={false} 
+                  tick={{ fill: 'var(--muted-foreground)', fontSize: 12 }}
+                />
+                <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: 'var(--card)', 
+                    borderColor: 'var(--border)', 
+                    borderRadius: '12px',
+                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' 
+                  }}
+                  formatter={(value) => [formatCurrency(value as number), 'Revenue']} 
+                />
                 <Line
                   type="monotone"
                   dataKey="value"
-                  stroke="var(--chart-1)"
-                  strokeWidth={2}
-                  dot={{ fill: 'var(--chart-1)' }}
+                  stroke="#3b82f6"
+                  strokeWidth={3}
+                  dot={false}
+                  activeDot={{ r: 6, strokeWidth: 0 }}
                 />
               </LineChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-none shadow-sm">
           <CardHeader>
-            <CardTitle>Sales by Category</CardTitle>
+            <CardTitle className="text-lg font-bold">Sales by Category</CardTitle>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={salesByCategory}>
-                <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
-                <XAxis dataKey="category" />
-                <YAxis tickFormatter={formatCurrency} />
-                <Tooltip formatter={(value) => [formatCurrency(value as number), 'Sales']} />
-                <Bar dataKey="sales" fill="var(--chart-1)" />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--border)" />
+                <XAxis 
+                  dataKey="category" 
+                  axisLine={false} 
+                  tickLine={false} 
+                  tick={{ fill: 'var(--muted-foreground)', fontSize: 12 }}
+                  dy={10}
+                />
+                <YAxis 
+                  tickFormatter={formatCurrency} 
+                  axisLine={false} 
+                  tickLine={false} 
+                  tick={{ fill: 'var(--muted-foreground)', fontSize: 12 }}
+                />
+                <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: 'var(--card)', 
+                    borderColor: 'var(--border)', 
+                    borderRadius: '12px',
+                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' 
+                  }}
+                  formatter={(value) => [formatCurrency(value as number), 'Sales']} 
+                />
+                <Bar dataKey="sales" fill="#6366f1" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>
       </div>
 
-      <Card>
+      <Card className="border-none shadow-sm">
         <CardHeader>
-          <CardTitle>Top Selling Supplements</CardTitle>
+          <CardTitle className="text-lg font-bold">Top Selling Supplements</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {mockDashboardMetrics.topSupplements.map((supplement, index) => (
-              <div key={supplement.id} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <div key={supplement.id} className="flex items-center justify-between p-4 rounded-2xl bg-muted/30 border border-border/50 transition-all hover:bg-muted/50">
                 <div className="flex items-center space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-primary-500 text-black dark:text-white rounded-full flex items-center justify-center text-sm font-semibold">
+                  <div className="flex-shrink-0 w-10 h-10 bg-background border border-border text-foreground rounded-xl flex items-center justify-center text-sm font-bold shadow-sm">
                     {index + 1}
                   </div>
                   <div>
-                    <h3 className="text-sm font-medium text-gray-900 dark:text-white">{supplement.name}</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 capitalize">
+                    <h3 className="text-sm font-bold text-foreground">{supplement.name}</h3>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider mt-0.5">
                       {supplement.category.replace('_', ' ')}
                     </p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm font-medium text-gray-900 dark:text-white">
+                  <p className="text-sm font-bold text-foreground">
                     {formatCurrency(supplement.revenue)}
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <p className="text-xs text-muted-foreground font-medium">
                     {supplement.sales} units
                   </p>
                 </div>

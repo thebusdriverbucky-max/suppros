@@ -36,21 +36,16 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="min-h-screen bg-background w-full">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-primary shadow-sm border-b border-border w-screen">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-md border-b border-border w-full">
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
           <Link to="/" className="flex items-center">
-            <img src="https://i.imgur.com/pd9H5Wt.png" alt="SupPros Logo" className="h-8 w-8 mr-2" />
-            <h1 className="text-xl font-bold text-primary-foreground">SupPros</h1>
+            <h1 className="text-xl font-bold tracking-tight text-foreground">Admin Panel</h1>
           </Link>
 
           <div className="flex items-center space-x-4">
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-md transition-colors ${
-                theme === 'dark'
-                  ? 'bg-muted text-yellow-300 hover:bg-muted/80'
-                  : 'bg-yellow-300 text-black hover:bg-yellow-400'
-              }`}
+              className="p-2 rounded-xl transition-all duration-200 hover:bg-muted text-muted-foreground hover:text-foreground border border-transparent hover:border-border"
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
@@ -62,21 +57,17 @@ export default function Layout({ children }: LayoutProps) {
 
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className={`lg:hidden p-2 rounded-md transition-colors ${
-                theme === 'dark'
-                  ? 'bg-muted text-foreground hover:bg-muted/80'
-                  : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
-              }`}
+              className="lg:hidden p-2 rounded-xl transition-all duration-200 hover:bg-muted text-muted-foreground hover:text-foreground border border-transparent hover:border-border"
               aria-label="Open sidebar"
             >
               <Menu className="h-5 w-5" />
             </button>
 
-            <div className="flex items-center space-x-2">
-              <div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center">
-                <span className="text-sm font-medium text-white">A</span>
+            <div className="flex items-center space-x-3 pl-2 border-l border-border">
+              <div className="h-9 w-9 rounded-xl bg-gradient-to-tr from-primary to-primary/60 flex items-center justify-center shadow-sm">
+                <span className="text-sm font-semibold text-primary-foreground">A</span>
               </div>
-              <span className="hidden sm:block text-sm font-medium text-foreground">
+              <span className="hidden sm:block text-sm font-semibold text-foreground">
                 Admin
               </span>
             </div>
@@ -92,25 +83,25 @@ export default function Layout({ children }: LayoutProps) {
           />
         )}
 
-        <div className={`fixed inset-y-0 left-0 top-16 z-40 w-64 bg-card transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 lg:flex lg:flex-col lg:flex-shrink-0 lg:block`}>
-          <nav className="mt-8 px-4">
-            <ul className="space-y-2">
+        <div className={`fixed inset-y-0 left-0 top-16 z-40 w-64 bg-card border-r border-border transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 lg:flex lg:flex-col lg:flex-shrink-0`}>
+          <nav className="mt-6 px-3 flex-1">
+            <ul className="space-y-1.5">
               {navigation.map((item) => {
                 const isActive = location.pathname === item.href;
                 return (
                   <li key={item.name}>
                     <Link
                       to={item.href}
-                      className={`group flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+                      className={`group flex items-center px-3 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200 ${
                         isActive
-                          ? 'bg-green-900 text-white'
-                          : 'text-muted-foreground hover:bg-muted hover:text-green-900 dark:hover:text-green-300'
+                          ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20'
+                          : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                       }`}
                       onClick={() => setSidebarOpen(false)}
                     >
                       <item.icon
-                        className={`mr-3 h-5 w-5 flex-shrink-0 ${
-                          isActive ? 'text-white' : 'text-muted-foreground group-hover:text-foreground'
+                        className={`mr-3 h-5 w-5 flex-shrink-0 transition-colors ${
+                          isActive ? 'text-primary-foreground' : 'text-muted-foreground group-hover:text-foreground'
                         }`}
                       />
                       {item.name}

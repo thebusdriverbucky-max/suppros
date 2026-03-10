@@ -8,43 +8,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#B6FEE5',
-          100: '#98FCCD',
-          200: '#7AFAB4',
-          300: '#5CF39B',
-          400: '#3EDB82',
-          500: '#2BBF6A',
-          600: '#25A55B',
-          700: '#1F8A4C',
-          800: '#1A7A44',
-          900: '#155A3A',
-        },
-        secondary: {
-          50: '#F0FCF5',
-          100: '#DFF8EB',
-          200: '#C5F1DA',
-          300: '#ABEBCA',
-          400: '#91E4B9',
-          500: '#A5E8C1',
-          600: '#97D5AE',
-          700: '#88C29B',
-          800: '#79AF88',
-          900: '#6A9C75',
-        },
-        neutral: {
-          white: '#FFFFFF',
-          light: '#F5F7FA',
-          ui: '#E5E7EB',
-          dark: '#1F2937',
-          medium: '#4B5563',
-        },
-        alert: {
-          success: '#22C55E',
-          warning: '#F59E0B',
-          error: '#EF4444',
-          info: '#0EA5E9',
-        },
         // Semantic colors using CSS variables
         background: 'var(--background)',
         foreground: 'var(--foreground)',
@@ -86,6 +49,15 @@ export default {
           '4': 'var(--chart-4)',
           '5': 'var(--chart-5)'
         }
+      },
+      borderRadius: {
+        'xl': '0.75rem',
+        '2xl': '1rem',
+        '3xl': '1.5rem',
+      },
+      boxShadow: {
+        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+        'elegant': '0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05)',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
